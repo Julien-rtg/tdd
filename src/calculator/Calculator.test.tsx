@@ -111,4 +111,22 @@ describe('Calculator', () => {
     fireEvent.click(buttonEquals)
     expect(display.textContent).toBe('8')
   })
+  it('should handle negative value', () => {
+    render(<Calculator />)
+    
+    const display = screen.getByTestId('calculator-display')
+    
+    const button2 = screen.getByText('2')
+    const buttonMinus = screen.getByText('-')
+    const buttonEquals = screen.getByText('=')
+    
+    fireEvent.click(buttonMinus)
+    fireEvent.click(button2)
+    
+    fireEvent.click(buttonMinus)
+    fireEvent.click(button2)
+    
+    fireEvent.click(buttonEquals)
+    expect(display.textContent).toBe('-4')
+  })
 })
