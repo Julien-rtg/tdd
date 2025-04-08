@@ -59,6 +59,8 @@ function Calculator() {
                 return firstOperand * secondOperand
             case '/':
                 return firstOperand / secondOperand
+            case '^':
+                return Math.pow(firstOperand, secondOperand)
             default:
                 return secondOperand
         }
@@ -95,7 +97,8 @@ function Calculator() {
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '10px'
             }}>
-                <button onClick={() => clearDisplay()} style={{ gridColumn: 'span 2' }}>AC</button>
+                <button onClick={() => clearDisplay()} style={{ gridColumn: 'span 1' }}>AC</button>
+                <button onClick={() => performOperation('^')}>x^y</button>
                 <button onClick={() => performOperation('/')}>/</button>
                 <button onClick={() => performOperation('*')}>×</button>
 
